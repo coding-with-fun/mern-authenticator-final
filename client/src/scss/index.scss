@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@import "./components/AuthForm.scss";
+@import "./components/Body.scss";
+@import "./components/Footer.scss";
+@import "./components/Home.scss";
+@import "./components/Navbar.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #2b3137;
+    background-image: url("../assets/bg.svg");
+    background-position: center 10%;
+    background-size: auto;
+}
+
+.main_structure {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

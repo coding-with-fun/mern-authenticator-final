@@ -1,2 +1,3 @@
-# mern-authenticator
-A starter MERN authenticator app
+# MERN authenticator
+
+A starter MERN authenticator app.
