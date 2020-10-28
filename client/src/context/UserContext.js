@@ -13,7 +13,8 @@ export const UserProvider = (props) => {
     const [userData, setUserData] = useState({
         name: "",
         email: "",
-        avatar: "",
+        avatar:
+            "https://www.gravatar.com/avatar/00000000000000000000000000000000",
     });
     const [errorMessages, setErrorMessages] = useState({
         email: null,
@@ -22,12 +23,14 @@ export const UserProvider = (props) => {
     const [serverError, setServerError] = useState(null);
     const [serverSuccess, setServerSuccess] = useState(null);
     const [verifiedUser, setVerifiedUser] = useState(false);
+    const [isRefresh, setIsRefresh] = useState(true);
 
     useEffect(() => {
         FetchDetails();
     }, []);
 
     const SignInUser = async (data, history) => {
+        setIsRefresh(true);
         setErrorMessages(null);
         setServerError(null);
         if (await SignInFunction(data, setErrorMessages, setServerError)) {
@@ -36,6 +39,7 @@ export const UserProvider = (props) => {
     };
 
     const SignUpUser = async (data, history) => {
+        setIsRefresh(true);
         setErrorMessages(null);
         setServerError(null);
         if (await SignUpFunction(data, setErrorMessages, setServerError)) {
@@ -44,6 +48,7 @@ export const UserProvider = (props) => {
     };
 
     const UpdateUser = async (data) => {
+        setIsRefresh(true);
         setErrorMessages(null);
         setServerError(null);
         setServerSuccess(null);
@@ -60,6 +65,7 @@ export const UserProvider = (props) => {
     };
 
     const DeleteUser = async (history) => {
+        setIsRefresh(true);
         if (await DeleteFunction(setServerError)) {
             FetchDetails().then(
                 history.push("/"),
@@ -70,6 +76,7 @@ export const UserProvider = (props) => {
     };
 
     const FetchDetails = async () => {
+        setIsRefresh(true);
         const token = localStorage.getItem("token");
         if (token) {
             const userDetails = await UserDetails(token);
@@ -82,9 +89,10 @@ export const UserProvider = (props) => {
         } else {
             setUserData({
                 avatar:
-                    "//www.gravatar.com/avatar/aaee2964ee764dbc53cea54b81cc996f?s=200&r=pg&d=mm",
+                    "https://www.gravatar.com/avatar/00000000000000000000000000000000",
             });
         }
+        setIsRefresh(false);
     };
 
     return (
@@ -98,6 +106,7 @@ export const UserProvider = (props) => {
                 serverError,
                 setErrorMessages,
                 serverSuccess,
+                isRefresh,
                 SignInUser,
                 SignUpUser,
                 UpdateUser,

@@ -314,6 +314,12 @@ router.get("/details", userAuth, async (req, res) => {
 
         const existingUser = await User.findById(userID);
 
+        existingUser.avatar = gravatar.url(existingUser.email, {
+            s: "200",
+            r: "pg",
+            d: "mm",
+        });
+
         return res.status(200).json({
             status: true,
             user: {

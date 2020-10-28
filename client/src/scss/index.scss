@@ -28,4 +28,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    .spinner__container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .spinner-border {
+        width: 4rem;
+        height: 4rem;
+    }
 }
