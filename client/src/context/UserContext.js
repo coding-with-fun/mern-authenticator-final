@@ -35,6 +35,8 @@ export const UserProvider = (props) => {
         setServerError(null);
         if (await SignInFunction(data, setErrorMessages, setServerError)) {
             FetchDetails().then(history.push("/"));
+        } else {
+            setIsRefresh(false);
         }
     };
 
@@ -44,10 +46,12 @@ export const UserProvider = (props) => {
         setServerError(null);
         if (await SignUpFunction(data, setErrorMessages, setServerError)) {
             FetchDetails().then(history.push("/"));
+        } else {
+            setIsRefresh(false);
         }
     };
 
-    const UpdateUser = async (data) => {
+    const UpdateUser = async (data, history) => {
         setIsRefresh(true);
         setErrorMessages(null);
         setServerError(null);
@@ -61,18 +65,38 @@ export const UserProvider = (props) => {
             )
         ) {
             FetchDetails();
+        } else {
+            localStorage.removeItem("token");
+            setIsRefresh(false);
+            setVerifiedUser(false);
+            setErrorMessages(null);
+            setServerError(null);
+            setServerSuccess(null);
+            setUserData({
+                avatar:
+                    "https://www.gravatar.com/avatar/00000000000000000000000000000000",
+            });
+            history.push("/");
         }
     };
 
     const DeleteUser = async (history) => {
         setIsRefresh(true);
         if (await DeleteFunction(setServerError)) {
-            FetchDetails().then(
-                history.push("/"),
-                localStorage.removeItem("token"),
-                setVerifiedUser(false)
-            );
+            FetchDetails();
+        } else {
+            setIsRefresh(false);
         }
+        localStorage.removeItem("token");
+        setVerifiedUser(false);
+        setErrorMessages(null);
+        setServerError(null);
+        setServerSuccess(null);
+        setUserData({
+            avatar:
+                "https://www.gravatar.com/avatar/00000000000000000000000000000000",
+        });
+        history.push("/");
     };
 
     const FetchDetails = async () => {
