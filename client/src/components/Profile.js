@@ -20,7 +20,7 @@ const Profile = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        UpdateUser({ userName, userEmail }).then(
+        UpdateUser({ userName, userEmail }, history).then(
             setUserName(""),
             setUserEmail("")
         );
