@@ -1,0 +1,44 @@
+.navbar__container {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2b3137;
+
+    .logo {
+        img {
+            height: 40px;
+            width: 40px;
+        }
+    }
+
+    .dropdown {
+        button {
+            border: none;
+            background: none;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: 30px;
+                width: 30px;
+                border-radius: 50px;
+                margin-right: 5px;
+            }
+        }
+
+        button:focus {
+            outline: 0;
+        }
+
+        .signOut {
+            cursor: pointer;
+        }
+
+        .dropdown-item:active {
+            background: none;
+        }
+    }
+}

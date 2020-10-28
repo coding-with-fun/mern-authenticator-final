@@ -1,0 +1,16 @@
+.body__container {
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+}
+
+.body__container::-webkit-scrollbar {
+    display: none;
+}
