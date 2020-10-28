@@ -1,0 +1,137 @@
+.signUp__container,
+.signIn__container,
+.update__container {
+    height: inherit;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .signUp__body,
+    .signIn__body,
+    .update__body {
+        width: 400px;
+        height: fit-content;
+        margin: 20px 10px;
+        padding: 10px 20px;
+
+        background-color: #ffffff;
+        color: #2b3137;
+        border-radius: 10px;
+
+        .heading {
+            font-size: 40px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .img__container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            img {
+                border-radius: 100px;
+            }
+        }
+
+        form {
+            margin-bottom: 20px;
+
+            small {
+                color: #ff0000;
+            }
+        }
+
+        .btn__container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            button {
+                border: none;
+                background: #007bff;
+                color: #ffffff;
+                border-radius: 6px;
+                padding: 6px 12px;
+                box-shadow: 0px 0px 0px transparent;
+                text-shadow: 0px 0px 0px transparent;
+                cursor: pointer;
+            }
+
+            .delete_btn {
+                background: #dc3545;
+            }
+
+            button:disabled {
+                background: #92bbf4;
+                cursor: no-drop;
+            }
+
+            .delete_btn:disabled {
+                background: #923544;
+            }
+
+            button:hover {
+                background: #006aff;
+                box-shadow: 0px 0px 0px transparent;
+                border: 0px solid transparent;
+                text-shadow: 0px 0px 0px transparent;
+            }
+
+            .delete_btn:hover {
+                background: #d03045;
+            }
+
+            button:hover:disabled {
+                background: #92bbf4;
+                cursor: no-drop;
+            }
+
+            .delete_btn:hover {
+                background: #ce3c50;
+            }
+
+            button:active {
+                outline: none;
+                border: none;
+                background: #92bbf4;
+            }
+
+            .delete_btn:active {
+                background: #691924;
+            }
+
+            button:focus {
+                outline: 0;
+            }
+        }
+
+        .update_btn__container {
+            justify-content: space-evenly;
+        }
+
+        .path_to_signin {
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 0 10px;
+
+            a {
+                color: #2b3137;
+                font-weight: 500;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .signUp__container,
+    .signIn__container,
+    .update__container {
+        .signUp__body,
+        .signIn__body {
+            padding: 10px;
+        }
+    }
+}
